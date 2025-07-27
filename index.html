@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rithi Event Management</title>
+  <style>
+    :root {
+      --primary: #e63946;
+      --secondary: #f1faee;
+      --accent: #457b9d;
+      --dark: #1d3557;
+      --light: #a8dadc;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      background-color: var(--secondary);
+      color: var(--dark);
+    }
+    .logo {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 3rem;
+      color: var(--primary);
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+    .logo span {
+      color: var(--accent);
+    }
+    header {
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1511578314322-379afb476865');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      padding: 0 20px;
+    }
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: var(--dark);
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+    nav ul li {
+      margin-left: 20px;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+    nav ul li a:hover {
+      color: var(--light);
+    }
+    .hero h1 {
+      font-size: 4rem;
+      margin-bottom: 20px;
+    }
+    .hero p {
+      font-size: 1.5rem;
+      margin-bottom: 30px;
+      max-width: 800px;
+    }
+    .btn {
+      display: inline-block;
+      background-color: var(--primary);
+      color: white;
+      padding: 12px 30px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+      border: none;
+      cursor: pointer;
+      font-size: 1.1rem;
+    }
+    .btn:hover {
+      background-color: #c1121f;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+    section {
+      padding: 80px 20px;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+      font-size: 2.5rem;
+      color: var(--dark);
+    }
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    .service-card {
+      background-color: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    }
+    .service-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .service-card-content {
+      padding: 20px;
+    }
+    .service-card h3 {
+      margin-bottom: 10px;
+      color: var(--accent);
+    }
+    .stats {
+      background-color: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+    }
+    .stats-container {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .stat-item {
+      margin: 20px;
+    }
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+    .gallery img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+    footer {
+      background-color: var(--dark);
+      color: white;
+      padding: 50px 20px;
+      text-align: center;
+    }
+    .social-links {
+      margin: 20px 0;
+    }
+    .social-links a {
+      color: rgb(0, 0, 0);
+      margin: 0 10px;
+      font-size: 1.5rem;
+      transition: 0.3s;
+    }
+    .social-links a:hover {
+      color: var(--light);
+    }
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      .hero p {
+        font-size: 1.2rem;
+      }
+      .logo {
+        font-size: 2rem;
+      }
+      nav ul {
+        display: none;
+      }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <nav>
+    <div class="logo">REM</div>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header id="home">
+    <div class="hero">
+      <h1>Rithi Event Management</h1>
+      <p>Creating unforgettable moments with 100+ successful events and 100+ happy customers across Tamil Nadu</p>
+      <a href="#contact" class="btn">Get a Quote</a>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">About Us</h2>
+      <p style="text-align: center; max-width: 800px; margin: 0 auto; line-height: 1.6; font-size: 1.1rem;">
+        At Rithi Event Management, we bring your visions to life with creativity, precision, and passion. As a full-service event management company, we specialize in planning and executing memorable events—from elegant weddings and corporate gatherings to product launches and private parties.
+
+With a dedicated team of experienced professionals, we ensure every detail is taken care of—venue selection, decor, entertainment, logistics, and beyond. Whether it's an intimate celebration or a grand affair, we tailor every event to reflect your style, goals, and budget.
+
+We don’t just plan events.
+We create experiences.
+      </p>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <h2 class="section-title">Our Services</h2>
+      <div class="services">
+        <div class="service-card">
+          <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf" alt="Welcome Dance">
+          <div class="service-card-content">
+            <h3>Welcome Dance</h3>
+            <p>Professional dancers to welcome your guests with traditional and contemporary performances.</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745" alt="DJ Services">
+          <div class="service-card-content">
+            <h3>DJ Services</h3>
+            <p>High-energy music mixing to keep your event lively and entertaining.</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0" alt="Catering Service">
+          <div class="service-card-content">
+            <h3>Catering Service</h3>
+            <p>Delicious and hygienic food services tailored to your event's needs.</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <img src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e" alt="Photography">
+          <div class="service-card-content">
+            <h3>Photography</h3>
+            <p>Professional photography to capture your special moments beautifully.</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <img src="https://images.unsplash.com/photo-1511578314322-379afb476865" alt="Stage Decorations">
+          <div class="service-card-content">
+            <h3>Stage Decorations</h3>
+            <p>Creative and elegant stage designs to enhance your event's ambiance.</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9" alt="Makeup">
+          <div class="service-card-content">
+            <h3>Makeup</h3>
+            <p>Professional makeup artists to make you look your best on your special day.</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <img src=".\images\Orange Girl Illustration Women's History Month Instagram Story.png" alt="Welcome Girls">
+          <div class="service-card-content">
+            <h3>Welcome Girls</h3>
+            <p>Elegant hostesses to welcome and assist your guests throughout the event.</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <img src=".\images\Red Pink Strawberry Beverage Instagram Post.png" alt="Welcome Drinks">
+          <div class="service-card-content">
+            <h3>Welcome Drinks</h3>
+            <p>Refreshing beverages served to guests upon arrival.</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <img src=".\images\Red and Green Simple Mehandi Service Logo.png" alt="Mehandi">
+          <div class="service-card-content">
+            <h3>Mehandi</h3>
+            <p>Beautiful henna designs by skilled artists for weddings and special occasions.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="stats-container">
+      <div class="stat-item">
+        <div class="stat-number">100+</div>
+        <div class="stat-text">Successful Events</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">100+</div>
+        <div class="stat-text">Happy Customers</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">All Over</div>
+        <div class="stat-text">Tamil Nadu</div>
+      </div>
+    </div>
+  </section>
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact Us</h2>
+      <p style="text-align: center; margin-bottom: 30px;">Ready to plan your perfect event? Get in touch with us today!</p>
+      <div style="text-align: center;">
+        <a href="#" class="btn" id="contact-btn">Contact Now</a>
+      </div>
+      <div class="social-links" style="text-align: center; margin-top: 40px;">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+        <a href="#"><i class="fas fa-globe"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Rithi Event Management. All Rights Reserved.</p>
+    <p>Serving all over Tamil Nadu with excellence in event planning.</p>
+  </footer>
+
+  <script>
+    document.getElementById('contact-btn').addEventListener('click', function() {
+      // This will be linked to your contact details
+      alert('Please contact us via WhatsApp, Instagram, or our website!');
+    });
+  </script>
+</body>
+</html>
